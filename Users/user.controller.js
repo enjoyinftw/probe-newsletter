@@ -1,10 +1,11 @@
-const User = require('./user.model');
+const { User } = require('./user.model');
 
 const create = async (req, res) => {
   try {
     const data = req.body;
+
     const newUser = await User.create(data);
-    console.log(newUser.toJSON());
+
     res.status(201).json({ code: 201, isCreated: true, data: newUser });
   } catch (e) {
     console.log(e);
@@ -20,7 +21,7 @@ const findAll = async (req, res) => {
   try {
     const users = await User.findAll();
     console.log('All users:', JSON.stringify(users, null, 2));
-    res.status(200).json({ code: 200, isFound: true, data: users });
+    res.status(200).json({ code: 200, isFound: true, userData: users });
   } catch (e) {
     console.log(e);
     res.status(400).json({
