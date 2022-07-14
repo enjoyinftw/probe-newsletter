@@ -1,7 +1,8 @@
-import Newsletter from './pages/Newsletter';
+import React from 'react';
+import Home from './pages/Home';
 
 function App() {
-  return <Newsletter />;
+  return <Home />;
 }
 
 export default App;

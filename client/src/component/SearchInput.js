@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const NewsletterSearch = ({ searchterm, setSearchterm }) => {
+const SearchInput = ({ searchterm, setSearchterm }) => {
   return (
     <>
       <label htmlFor='search'>Enter your searchterm:</label>
@@ -16,4 +16,4 @@ const NewsletterSearch = ({ searchterm, setSearchterm }) => {
   );
 };
 
-export default NewsletterSearch;
+export default SearchInput;

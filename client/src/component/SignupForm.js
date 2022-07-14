@@ -28,6 +28,7 @@ const SignupForm = ({ handleSignupSubmit }) => {
           onChange={(e) => handleNameChange(e)}
           aria-label='Your Name'
         />
+        <br />
         <label htmlFor='email'>Enter your Email:</label>
         <input
           placeholder='Your E-Mail'
