@@ -1,5 +1,7 @@
+import Newsletter from './pages/Newsletter';
+
 function App() {
-  return <div className='App'>test</div>;
+  return <Newsletter />;
 }
 
 export default App;
