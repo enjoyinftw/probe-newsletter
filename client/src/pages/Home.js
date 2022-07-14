@@ -46,7 +46,6 @@ const Home = () => {
           credentials: 'include',
         }
       );
-      console.log(data);
       setSubmitCounter(submitCounter + 1);
     } catch (e) {
       console.log(e);

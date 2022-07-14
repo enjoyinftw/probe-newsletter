@@ -1,23 +1,32 @@
 import { useState, useEffect } from 'react';
 import UserList from '../component/UserList';
 import SearchInput from '../component/SearchInput';
+import axios from 'axios';
 
 const Email = ({ users, handleNoteSubmit }) => {
   const [userList, setUserList] = useState(users);
+  const [submitCounter, setSubmitCounter] = useState(0);
   const [searchterm, setSearchterm] = useState('');
 
-  useEffect(() => {
-    const newUsers = users.filter(
-      (user) =>
-        user.name.toLowerCase().includes(searchterm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchterm.toLowerCase())
-    );
-    setUserList(newUsers);
-  }, [searchterm]);
+  useEffect(() => {}, [submitCounter]);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setSubmitCounter(submitCounter + 1);
+  };
 
   return (
     <div>
-      <SearchInput searchterm={searchterm} setSearchterm={setSearchterm} />
+      <br />
+      <form onSubmit={(e) => handleSearchSubmit(e)}>
+        <SearchInput
+          searchterm={searchterm}
+          setSearchterm={setSearchterm}
+          label={'Enter a name:'}
+          placeholder={'username'}
+        />
+        <button value='submit'>Search</button>
+      </form>
       {userList.length ? (
         <UserList items={userList} handleNoteSubmit={handleNoteSubmit} />
       ) : (

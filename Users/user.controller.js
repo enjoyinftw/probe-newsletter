@@ -6,7 +6,9 @@ const create = async (req, res) => {
 
     const newUser = await User.create(data);
 
-    res.status(201).json({ code: 201, isCreated: true, data: newUser });
+    res
+      .status(201)
+      .json({ code: 201, isCreated: true, data: newUser.toJSON() });
   } catch (e) {
     console.log(e);
     res.status(400).json({
@@ -32,7 +34,23 @@ const findAll = async (req, res) => {
   }
 };
 
+const findByName = async (req, res) => {
+  try {
+    const { name } = req.body;
+    const user = User.findAll({
+      where: {
+        name: name,
+      },
+    });
+    res.status(200).json({ code: 200, isFound: 200, userData: user });
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({ code: 400, isFound, msg: 'something went wrong' });
+  }
+};
+
 module.exports = {
   create,
   findAll,
+  findByName,
 };

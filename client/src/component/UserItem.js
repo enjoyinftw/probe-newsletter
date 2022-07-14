@@ -14,9 +14,9 @@ const ListItem = ({ item, index, handleNoteSubmit }) => {
       </p>
       {item.note && <span>Note: {item.note}</span>}
       <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor='note'>Enter your Note</label>
+        <label htmlFor='note'>Enter your Note: </label>
         <input
-          placeholder='User Note'
+          placeholder='Note'
           name='note'
           type='text'
           value={note}

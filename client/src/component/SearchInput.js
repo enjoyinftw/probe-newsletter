@@ -1,11 +1,16 @@
 import React from 'react';
 
-const SearchInput = ({ searchterm, setSearchterm }) => {
+const SearchInput = ({
+  searchterm,
+  setSearchterm,
+  placeholder = 'What are you looking for?',
+  label = 'Enter your searchterm:',
+}) => {
   return (
     <>
-      <label htmlFor='search'>Enter your searchterm:</label>
+      <label htmlFor='search'>{label}</label>
       <input
-        placeholder='What are you looking for?'
+        placeholder={placeholder}
         name='search'
         type='text'
         value={searchterm}
