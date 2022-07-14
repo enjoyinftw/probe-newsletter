@@ -1,7 +1,8 @@
 const { Router } = require('express');
+const { create, findAll } = require('../Users/user.controller');
 const router = Router();
 
-router.get('/test', (req, res) => {
-  res.send('test');
-});
+router.post('/create', create);
+router.get('/findall', findAll);
+
 module.exports = router;

@@ -10,9 +10,9 @@ const ListItem = ({ item, index, handleNoteSubmit }) => {
   return (
     <div>
       <p>
-        {item.name} - {item.email}
+        Username: {item.name} <br /> Email: {item.email}
       </p>
-      {item.note && <span>{item.note}</span>}
+      {item.note && <span>Note: {item.note}</span>}
       <form onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor='note'>Enter your Note</label>
         <input

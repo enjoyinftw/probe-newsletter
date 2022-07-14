@@ -23,7 +23,7 @@ const Home = () => {
     let [editUser] = newUsers.splice(index, 1);
     editUser = { ...editUser, note: note };
     newUsers.splice(index, 0, editUser);
-    setUsers(newUsers);
+    setUsers([...newUsers]);
   };
 
   return (
