@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const SignupForm = () => {
+const SignupForm = ({ handleSignupSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -11,14 +11,15 @@ const SignupForm = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
-  const handleSignupSubmit = () => {};
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSignupSubmit(name, email);
+  };
   return (
     <div className='signupbox'>
       <h1>Newsletter Signup</h1>
-      <form onSubmit={handleSignupSubmit}>
-        <label for='name'>Enter your Name:</label>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <label htmlFor='name'>Enter your Name:</label>
         <input
           placeholder='Your Name'
           name='name'
@@ -27,7 +28,7 @@ const SignupForm = () => {
           onChange={(e) => handleNameChange(e)}
           aria-label='Your Name'
         />
-        <label for='email'>Enter your Email:</label>
+        <label htmlFor='email'>Enter your Email:</label>
         <input
           placeholder='Your E-Mail'
           type='text'
@@ -35,6 +36,7 @@ const SignupForm = () => {
           onChange={(e) => handleEmailChange(e)}
           aria-label='Your Name'
         />
+        <button type='submit'>Sign Up</button>
       </form>
     </div>
   );
